@@ -205,7 +205,7 @@ void clearMemmory(){
     loadPreset(x);
     for(int i=0;i<NUMBER_OF_SOUNDS;i++){
       for(int j=0;j<NUMBER_OF_VARIABLES;j++){
-        setVar(i,j, pgm_read_byte_near(clearTo+j));
+        setVar(i,j, rand(maxValue[j]));
       }
     }
     //  tempo=120;
