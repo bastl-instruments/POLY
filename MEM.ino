@@ -64,7 +64,7 @@ PROGMEM prog_uint16_t maxValue[]={
 
 #define NUMBER_OF_VARIABLES 12
 #define NUMBER_OF_BYTES 10
-#define NUMBER_OF_PRESETS 3
+#define NUMBER_OF_PRESETS 6
 
 #define PRESET_SIZE 60
 

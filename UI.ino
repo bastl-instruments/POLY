@@ -222,7 +222,7 @@ void renderSmallButtons(){
   } 
 
   if(hw.justPressed(SMALL_BUTTON_1)) shift=!shift;
-  if(hw.justReleased(SMALL_BUTTON_1)) shift=!shift;
+  if(hw.justReleased(SMALL_BUTTON_1) && !bootShift) shift=!shift;
   if(hw.justPressed(EXTRA_BUTTON_1)) shift=!shift;
 
 
@@ -233,8 +233,8 @@ void renderCombo(){
   // if(hw.buttonState(SMALL_BUTTON_2) && hw.justPressed(SMALL_BUTTON_1)) loadPreset(0), hw.freezeAllKnobs(), combo=true;
   for(int i=0;i<3;i++){
     if(hw.buttonState(EXTRA_BUTTON_2) && hw.justPressed(i)) randomize(i+3*shift); // randomize 
-    if(hw.buttonState(SMALL_BUTTON_1) && hw.buttonState(SMALL_BUTTON_2) && hw.justPressed(i)) storePreset(currentPreset), loadPreset(i), hw.freezeAllKnobs(), combo=true; // save&load
-    if(hw.buttonState(SMALL_BUTTON_2) && hw.justPressed(i)) loadPreset(i), hw.freezeAllKnobs(), combo=true; // load
+    if(hw.buttonState(SMALL_BUTTON_1) && hw.buttonState(SMALL_BUTTON_2) && hw.justPressed(i)) storePreset(currentPreset), loadPreset(i+3*hw.buttonState(EXTRA_BUTTON_2)), hw.freezeAllKnobs(), combo=true; // save&load
+    if(hw.buttonState(SMALL_BUTTON_2) && hw.justPressed(i)) loadPreset(i+3*hw.buttonState(EXTRA_BUTTON_2)), hw.freezeAllKnobs(), combo=true; // load
   }
 
   if(combo){
